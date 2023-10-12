@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -43,6 +45,7 @@ class SubsetSumTest {
     void Test3() {
         int[] getallen = { 12, 10, 2, 7, 4 };
         boolean result = SubsetSum.subsetSum(getallen, 11, 0, 0, new int[getallen.length]);
+        assertTrue(result);
     }
 
 
@@ -61,4 +64,15 @@ class SubsetSumTest {
         boolean result = SubsetSum.subsetSum(getallen, 12, 0, 0, new int[getallen.length]);
         assertTrue(result);
     }
+
+    @Test
+    @DisplayName("Test kort")
+    void TestKort() {
+        int[] getallen = { 15, 12 };
+        boolean result = SubsetSum.subsetSum(getallen, 12, 0, 0, new int[getallen.length]);
+        assertTrue(result);
+    }
+
+
+
 }

@@ -1,5 +1,9 @@
 package logica;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class SubsetSum {
 
     /*
@@ -26,40 +30,10 @@ public class SubsetSum {
      * M = 12, getallen = 15, 12, 3, 7, 7
      */
 
-//    public static void main(String[] args) {
-//        int M = 15;
-//        int[] getallen = { 4, 5, 3, 8, 2, 9 };
-//        int[] oplossing = new int[getallen.length];
-//        int som = 0;
-//        int index = 0;
-//        boolean opgelost = false;
-//
-//        while (!opgelost) {
-//            if (som + getallen[index] <= M) {
-//                som += getallen[index];
-//                oplossing[index] = getallen[index];
-//                index++;
-//            } else {
-//                index--;
-//                som -= oplossing[index];
-//                oplossing[index] = 0;
-//                index++;
-//            }
-//
-//            if (som == M) {
-//                opgelost = true;
-//            }
-//        }
-//
-//        for (int i = 0; i < oplossing.length; i++) {
-//            if (oplossing[i] != 0) {
-//                System.out.print(oplossing[i] + " ");
-//            }
-//        }
-//    }
-
     //elk getal mag maar 1 keer voorkomen, gebruik recursieve functie die een bool returned
     public static boolean subsetSum(int[] getallen, int M, int som, int index, int[] oplossing) {
+        //traceInfo
+        System.out.println("M: " + M + " som: " + som + " index: " + index);
         if (som == M) {
             for (int i = 0; i < oplossing.length; i++) {
                 if (oplossing[i] != 0) {
@@ -79,4 +53,6 @@ public class SubsetSum {
             }
         }
     }
+
+
 }
