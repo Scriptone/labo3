@@ -58,26 +58,25 @@ public class SubsetSum {
 //        }
 //    }
 
-    public static void subsetSum(int[] getallen, int M, int index, int som, int[] oplossing) {
+    //elk getal mag maar 1 keer voorkomen, gebruik recursieve functie die een bool returned
+    public static boolean subsetSum(int[] getallen, int M, int som, int index, int[] oplossing) {
         if (som == M) {
             for (int i = 0; i < oplossing.length; i++) {
                 if (oplossing[i] != 0) {
                     System.out.print(oplossing[i] + " ");
-                    return;
                 }
             }
-            System.out.println();
-            return;
+            return true;
+        } else if (index == getallen.length) {
+            return false;
+        } else {
+            oplossing[index] = getallen[index];
+            if (subsetSum(getallen, M, som + getallen[index], index + 1, oplossing)) {
+                return true;
+            } else {
+                oplossing[index] = 0;
+                return subsetSum(getallen, M, som, index + 1, oplossing);
+            }
         }
-
-        if (index == getallen.length) {
-            return;
-        }
-
-        oplossing[index] = getallen[index];
-        subsetSum(getallen, M, index + 1, som + getallen[index], oplossing);
-        oplossing[index] = 0;
-        subsetSum(getallen, M, index + 1, som, oplossing);
-
     }
 }
