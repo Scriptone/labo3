@@ -63,6 +63,7 @@ public class SubsetSum {
             for (int i = 0; i < oplossing.length; i++) {
                 if (oplossing[i] != 0) {
                     System.out.print(oplossing[i] + " ");
+                    return;
                 }
             }
             System.out.println();
@@ -77,5 +78,6 @@ public class SubsetSum {
         subsetSum(getallen, M, index + 1, som + getallen[index], oplossing);
         oplossing[index] = 0;
         subsetSum(getallen, M, index + 1, som, oplossing);
+
     }
 }
